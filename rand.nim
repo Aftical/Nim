@@ -26,15 +26,22 @@ while true:
   )
   styledEcho fgCyan, "How many snack does Mochi-san have?"
 
-  let input = readLineFromStdin("=> ")
-  if input == "":
+  let strInput = readLineFromStdin("=> ")
+  if strInput == "":
     styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
     continue
 
-  let inputInt = input
+  var intInput: int
+  try:
+    let intInput = strInput.parseInt()
+  except ValueError:
+    styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
+    continue
+
+  let Input = intInput(strInput)
   let answer = num + num1
 
-  if inputInt.parseInt() == answer:
+  if Input == answer:
     styledEcho fgYellow, "Yay!! correct onii-chan!!"
   else:
     styledEcho fgRed, "nii~ nii~ onii-chan failed elementary school math? heehee..."
@@ -42,6 +49,7 @@ while true:
 
   styledEcho fgCyan, "wanna play again? (yes/no)"
   let replay = readLineFromStdin("=> ").toLowerAscii()
+
   if replay == "no":
     styledEcho fgGreen, "see ya nii~ nii~"
     break
@@ -50,3 +58,5 @@ while true:
   elif replay == "":
     styledEcho fgGreen, "press enter = play again :3"
     continue
+  else:
+    styledEcho fgGreen, "do nothing = play again :3"

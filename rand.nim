@@ -26,22 +26,10 @@ while true:
   )
   styledEcho fgCyan, "How many snack does Mochi-san have?"
 
-  let strInput = readLineFromStdin("=> ")
-
-  var intInput: int
-  try:
-    let intInput = strInput.parseInt()
-  except ValueError:
-    styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
-    continue
-
-  if strInput == "":
-    styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
-    continue
-
+  let strInput = readLineFromStdin("=> ").parseInt()
   let answer = num + num1
 
-  if intInput == answer:
+  if strInput == answer:
     styledEcho fgYellow, "Yay!! correct onii-chan!!"
   else:
     styledEcho fgRed, "nii~ nii~ onii-chan failed elementary school math? heehee..."

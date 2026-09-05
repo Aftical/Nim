@@ -27,9 +27,6 @@ while true:
   styledEcho fgCyan, "How many snack does Mochi-san have?"
 
   let strInput = readLineFromStdin("=> ")
-  if strInput == "":
-    styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
-    continue
 
   var intInput: int
   try:
@@ -38,10 +35,13 @@ while true:
     styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
     continue
 
-  let Input = intInput(strInput)
+  if strInput == "":
+    styledEcho fgRed, "nii~ nii~ Mochi-san need number!!"
+    continue
+
   let answer = num + num1
 
-  if Input == answer:
+  if intInput == answer:
     styledEcho fgYellow, "Yay!! correct onii-chan!!"
   else:
     styledEcho fgRed, "nii~ nii~ onii-chan failed elementary school math? heehee..."
